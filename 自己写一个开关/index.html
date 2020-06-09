@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>开关</title>
+    <style>
+        #groove {
+            height: 50px;
+            width: 100px;
+            background: #74868a;
+            border-radius: 50px;
+            border: 5px solid #dad6d5;
+            box-shadow: -2px 1px 0px rgba(0, 0, 0, .19);
+
+            transition: 0.8s;
+        }
+
+        #switch {
+            height: 40px;
+            width: 40px;
+            line-height: 40px;
+            background: linear-gradient(#e2e2e2, #e8e8e8);
+            border-radius: 50%;
+            border: 5px solid #f1f1f1;
+            color: #c1c1c1;
+            font-size: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.8s;
+        }
+
+        #switch:hover {
+            background: linear-gradient(#dad6d5, #d0d0d0);
+            border: 5px solid #e2e2e2;
+        }
+
+        .on {
+            transform: translateX(50px);
+            transition: 0.8s;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="groove">
+        <div id="switch">on</div>
+    </div>
+    <script>
+        var on = document.getElementById("switch");
+        on.onclick = function () {
+            var flag = hasClass(on, 'on');
+            if (flag) {
+                on.removeAttribute("class");
+                on.parentElement.style.background = '#74868a';
+            } else {
+                on.setAttribute("class", "on");
+                on.parentElement.style.background = '#97b27f';
+            }
+        }
+        function hasClass(element, cls) {
+            return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+        }
+    </script>
+    </script>
+</body>
+
+</html>

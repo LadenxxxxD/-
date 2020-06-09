@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hover进入特效</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --circular-color: #2e86de;
+            --circular-diameter: 1800px;
+            --animation-duration: 1s;
+        }
+
+        body {
+            background-color: #222f3e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .box {
+            width: 400px;
+            height: 600px;
+            background-color: #576574;
+            border-radius: 30px;
+            box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script src="BoxEnterAnimation.js"></script>
+    <script>
+        BoxEnterAnimation({
+            el: ".box", // 挂载点 填入css选择器
+            config: {
+                color: "#2e86de", // 遮罩颜色
+                animationDuration: 1000 //动画持续时间 单位毫秒ms
+            }
+        })
+    </script>
+</body>
+
+</html>

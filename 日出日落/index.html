@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>日月更替</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body class="night">
+    <div class="circle-border">
+        <div id="sun"></div>
+        <div id="moon">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="stars">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div id="sea"></div>
+    </div>
+    <p id="textspan">期待<span>明天</span>吗</p>
+    <script>
+        //initialization
+        function init() {
+            let data = new Date();
+            let now = data.getHours();
+            if (now > 6 && now < 18) {
+                document.querySelector("#textspan").firstElementChild.innerHTML = "夜晚";
+                return false;
+            } else {
+                document.body.classList.add("night");
+                return true;
+            }
+        }
+        //transform event
+        let night = init();
+        let el = document.querySelector(".circle-border");
+        if (night) {
+            el.addEventListener("mouseenter", () => {
+                document.body.classList.remove("night");
+            });
+            el.addEventListener("mouseleave", () => {
+                document.body.classList.add("night");
+            });
+        } else {
+            el.addEventListener("mouseenter", () => {
+                document.body.classList.add("night");
+            });
+            el.addEventListener("mouseleave", () => {
+                document.body.classList.remove("night");
+            });
+        }
+    </script>
+</body>
+
+</html>
